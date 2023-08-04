@@ -171,9 +171,9 @@ def KnightTest():
 
 # board = Board()
 # print(board.board_index())
-# BishopTest()
+BishopTest()
 # RookTest()
 # QueenTest()
 # KingTest()
 # PawnTest()
-KnightTest()
+# KnightTest()
