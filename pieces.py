@@ -95,7 +95,20 @@ class Rook(Piece):
 
 class Knight(Piece):
     def __str__(self):
-        return f"K"
+        return f"N"
+
+    def getValidMoves(self, board: Board, position: Square) -> Set[Tuple[int, int]]:
+        operations = [
+            (2, 1),
+            (2, -1),
+            (-2, 1),
+            (-2, -1),
+            (1, 2),
+            (-1, 2),
+            (1, -2),
+            (-1, -2),
+        ]
+        return Piece.getValidMovesForOperations(board, position, operations, True)
 
 
 class Bishop(Piece):

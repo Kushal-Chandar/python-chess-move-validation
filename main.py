@@ -1,6 +1,6 @@
 from square import Square
 from typing import Set
-from pieces import Rook, Pawn, Queen, Bishop, King
+from pieces import Rook, Pawn, Queen, Bishop, King, Knight
 from board import Board
 
 
@@ -143,10 +143,37 @@ def PawnTest():
     print(board2)
 
 
+def KnightTest():
+    board = Board()
+    board.addPiece(Knight((6, 6)))
+    board.addPiece(Bishop((1, 1)))
+    board.addPiece(Bishop((3, 3)))
+    board.addPiece(Bishop((3, 5)))
+    board.addPiece(Bishop((4, 3)))
+    # board.addPiece(Bishop((5, 4)))
+    print("Before Validation")
+    print(board)
+    valid = "" if isValidMove(board, Square((6, 6)), Square((0, 0))) else "not"
+    print(f"The move from (6, 6) to (0, 0) is {valid} valid")
+    board2 = Board()
+    board2.addPiece(Knight((6, 6)))
+    board2.addPiece(Bishop((1, 1)))
+    board2.addPiece(Bishop((3, 3)))
+    board2.addPiece(Bishop((3, 5)))
+    board2.addPiece(Bishop((4, 3)))
+    # board2.addPiece(Bishop((5, 4)))
+    valid_moves = GetValidMoves(board, board.board[6][6])
+    for valid_move in valid_moves:
+        board2.addPiece(Knight(valid_move))
+    print("After Validation")
+    print(board2)
+
+
 # board = Board()
 # print(board.board_index())
 # BishopTest()
 # RookTest()
 # QueenTest()
-KingTest()
+# KingTest()
 # PawnTest()
+KnightTest()
